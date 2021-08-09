@@ -7,7 +7,7 @@ import { Container } from "semantic-ui-react";
 import MenuBar from "./components/MenuBar";
 import { AuthProvider } from "./context/auth";
 import UserEdit from "./pages/UserEdit";
-
+import CreatePost from "./pages/CreatePost";
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
 function App() {
@@ -19,6 +19,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/useredit" component={UserEdit}/>
+          <Route exact path="/createpost" component={CreatePost}/>
         </Container>
       </Router>
     </AuthProvider>

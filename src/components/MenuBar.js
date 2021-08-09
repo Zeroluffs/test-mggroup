@@ -16,11 +16,11 @@ function MenuBar() {
       <Menu.Item name={user.username} active as={Link} to="/" />
       <Menu.Menu position="right">
         <Menu.Item
-          name="search"
-          active={activeItem === "search"}
+          name="post"
+          active={activeItem === "post"}
           onClick={handleItemClick}
           as={Link}
-          to="/search"
+          to="/createpost"
         ></Menu.Item>
         <Menu.Item name="logout" onClick={logout} />
       </Menu.Menu>
