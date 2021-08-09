@@ -35,6 +35,7 @@ function Login(props) {
       })
       .then((res) => {
         context.login(userInfo);
+        props.history.push("/useredit");
         console.log(res.data);
       });
   };
