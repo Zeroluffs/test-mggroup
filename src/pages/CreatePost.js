@@ -1,16 +1,15 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button, Form } from "semantic-ui-react";
 import axios from "axios";
 import "../App.css";
-import { AuthContext } from "../context/auth";
-import { useForm } from "../utils/hooks";
+
 
 const api = axios.create({
   baseURL: `https://gorest.co.in/public/v1`,
 });
 
 function CreatePost(props) {
-  const [errors, setErrors] = useState({});
+  const [errors, ] = useState({});
   const [state, setState] = React.useState({
     title: "",
     body: "",

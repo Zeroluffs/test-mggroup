@@ -19,6 +19,7 @@ function Posts(props) {
     });
   }, []);
 
+
   return (
     <div>
       {posts.map((post) => (

@@ -4,7 +4,6 @@ import axios from "axios";
 import "../App.css";
 import { AuthContext } from "../context/auth";
 
-import { useForm } from "../utils/hooks";
 const api = axios.create({
   baseURL: `https://gorest.co.in/public/v1`,
 });
@@ -18,7 +17,7 @@ const options = [
 function UserEdit(props) {
   const { logout } = useContext(AuthContext);
 
-  const [errors, setErrors] = useState({});
+  const [errors] = useState({});
   const [state, setState] = React.useState({
     name: "",
     email: "",
@@ -80,6 +79,7 @@ function UserEdit(props) {
         setUser(res.data.data);
         console.log(user);
       });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
