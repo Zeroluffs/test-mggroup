@@ -8,6 +8,7 @@ import MenuBar from "./components/MenuBar";
 import { AuthProvider } from "./context/auth";
 import UserEdit from "./pages/UserEdit";
 import CreatePost from "./pages/CreatePost";
+import Posts from "./pages/Posts";
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
 function App() {
@@ -18,8 +19,9 @@ function App() {
           <MenuBar />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/useredit" component={UserEdit}/>
-          <Route exact path="/createpost" component={CreatePost}/>
+          <Route exact path="/useredit" component={UserEdit} />
+          <Route exact path="/createpost" component={CreatePost} />
+          <Route exact path="/posts" component={Posts} />
         </Container>
       </Router>
     </AuthProvider>

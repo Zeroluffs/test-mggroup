@@ -31,6 +31,7 @@ function CreatePost(props) {
       })
       .then((res) => {
         console.log(res);
+        props.history.push("/posts");
       });
   };
 
@@ -65,7 +66,7 @@ function CreatePost(props) {
         />
 
         <Button type="submit" primary>
-          Register
+          Create Post
         </Button>
       </Form>
     </div>
