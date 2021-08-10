@@ -32,6 +32,13 @@ function MenuBar(props) {
           to="/posts"
         ></Menu.Item>
         <Menu.Item
+          name="useredit"
+          active={activeItem === "useredit"}
+          onClick={handleItemClick}
+          as={Link}
+          to="/useredit"
+        />
+        <Menu.Item
           name="logout"
           onClick={() => {
             history.push("/login");

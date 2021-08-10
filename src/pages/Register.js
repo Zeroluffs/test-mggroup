@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Button, Form } from "semantic-ui-react";
 import axios from "axios";
 import "../App.css";
-import { useForm } from "../utils/hooks";
 
 const api = axios.create({
   baseURL: `https://gorest.co.in/public/v1`,
@@ -10,24 +9,22 @@ const api = axios.create({
 const options = [
   { key: "m", text: "Male", value: "male" },
   { key: "f", text: "Female", value: "female" },
-  { key: "o", text: "Non-binary", value: "nonbinary" },
 ];
 function Register(props) {
-  const [errors, setErrors] = useState({});
+  const [errors] = useState({});
   const [state, setState] = React.useState({
     name: "",
     email: "",
     status: "",
-    gender: "male",
   });
-
+  const [gender, setGender] = useState("");
   const onSubmit = (event) => {
     event.preventDefault();
     const userInfo = {
       name: state.name,
       email: state.email,
       status: state.status,
-      gender: state.gender,
+      gender: gender,
     };
     console.log(userInfo);
     api
@@ -46,6 +43,9 @@ function Register(props) {
       ...state,
       [event.target.name]: value,
     });
+  };
+  const getGender = (event, { value }) => {
+    setGender(value);
   };
 
   return (
@@ -75,7 +75,7 @@ function Register(props) {
           label="Gender"
           placeholder="Gender"
           options={options}
-          onChange={onChange}
+          onChange={getGender}
         />
         <Form.Input
           label="Status"

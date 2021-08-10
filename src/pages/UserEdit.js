@@ -11,7 +11,6 @@ const api = axios.create({
 const options = [
   { key: "m", text: "Male", value: "male" },
   { key: "f", text: "Female", value: "female" },
-  { key: "o", text: "Non-binary", value: "nonbinary" },
 ];
 
 function UserEdit(props) {
@@ -22,16 +21,17 @@ function UserEdit(props) {
     name: "",
     email: "",
     status: "",
-    gender: "male",
   });
   const [user, setUser] = useState({});
+  const [gender, setGender] = useState("");
+
   const onSubmit = (event) => {
     event.preventDefault();
     const userInfo = {
-      name: state.name,
+      name: state.name === "" ? user.name : state.name,
       email: state.email === "" ? user.email : state.email,
       status: state.status === "" ? user.status : state.status,
-      gender: state.gender === "" ? user.gender : state.gender,
+      gender: gender === "" ? user.gender : gender,
     };
     console.log("here");
     console.log(userInfo);
@@ -79,13 +79,15 @@ function UserEdit(props) {
         setUser(res.data.data);
         console.log(user);
       });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  const getGender = (event, { value }) => {
+    setGender(value);
+  };
   return (
     <div className="form-container">
       <Form onSubmit={onSubmit}>
-        <h1>Register</h1>
+        <h1>Edit User</h1>
         <Form.Input
           label="Name"
           placeholder={user.name}
@@ -109,7 +111,7 @@ function UserEdit(props) {
           label="Gender"
           placeholder="Gender"
           options={options}
-          onChange={onChange}
+          onChange={getGender}
         />
         <Form.Input
           label="Status"

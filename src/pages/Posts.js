@@ -1,8 +1,6 @@
-import React, { useContext, useState, useEffect } from "react";
-import { Button, Form } from "semantic-ui-react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../App.css";
-import { useForm } from "../utils/hooks";
 import PostCard from "../components/PostCard";
 const api = axios.create({
   baseURL: `https://gorest.co.in/public/v1`,
